@@ -5,7 +5,7 @@ import Dropzone from "@/components/Dropzone";
 import { DndContext, DragEndEvent, DragOverEvent, DragOverlay, DragStartEvent, pointerWithin } from "@dnd-kit/core";
 import { useState } from "react";
 import { initialDraggablesMap } from "./mockData";
-import { arrangeDropzones, defaultDropzones } from "./utils";
+import { arrangeDropzones, defaultDropzones, UNSORTED_ID } from "./utils";
 import { TDropzone, TDraggable } from "./types";
 
 export default function TierlistPage() {
@@ -17,7 +17,7 @@ export default function TierlistPage() {
     setActiveDraggable(initialDraggablesMap.get(draggableId));
   };
 
-  const handleDragEnd = (_event: DragEndEvent) => {
+  const handleDragEnd = () => {
     setActiveDraggable(undefined);
   };
 
@@ -32,7 +32,7 @@ export default function TierlistPage() {
   };
 
   return (
-    <div className="flex h-screen w-screen flex-col items-center justify-center gap-4">
+    <div className="flex h-screen w-screen flex-col items-center justify-center">
       <DndContext
         collisionDetection={pointerWithin}
         onDragEnd={handleDragEnd}
@@ -44,6 +44,7 @@ export default function TierlistPage() {
             key={dropzone.id}
             dropzone={dropzone}
             draggablesMap={initialDraggablesMap}
+            variant={dropzone.id === UNSORTED_ID ? "free" : "default"}
           />
         ))}
 

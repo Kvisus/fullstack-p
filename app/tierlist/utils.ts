@@ -2,14 +2,15 @@ import { arrayMove } from "@dnd-kit/sortable";
 import { TDropzone } from "./types";
 import { initialDraggables } from "./mockData";
 
-export const DROPZONE_ID = "dropzone";
 export const UNSORTED_ID = "unsorted";
 
 export const defaultDropzones: TDropzone[] = [
   {
-    id: DROPZONE_ID,
+    id: "S",
     draggablesIds: [],
   },
+  { id: "A", draggablesIds: [] },
+  { id: "B", draggablesIds: [] },
   {
     id: UNSORTED_ID,
     draggablesIds: initialDraggables.map(d => d.id),
