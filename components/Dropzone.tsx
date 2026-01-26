@@ -15,7 +15,7 @@ export default function Dropzone({ dropzone, draggablesMap }: DropzoneProps) {
   return (
     <div
       ref={setNodeRef}
-      className={`flex min-h-24 w-full gap-2 border p-2 ${
+      className={`flex min-h-28 w-full flex-wrap gap-2 border p-2 ${
         isOver ? "border-green-500 bg-green-50" : "border-gray-300 bg-gray-50"
       }`}
     >
