@@ -80,3 +80,10 @@ export function arrangeDropzones(dropzones: TDropzone[], activeId: string, overI
     return dz;
   });
 }
+
+export const createId = () => {
+  if (typeof crypto !== "undefined" && "randomUUID" in crypto) {
+    return crypto.randomUUID();
+  }
+  return `upload-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+};
