@@ -13,6 +13,8 @@ export default function DraggableContent({ draggable }: { draggable: TDraggable 
       width={94}
       height={94}
       unoptimized={isInlineImage}
+      draggable={false}
+      className="select-none"
     />
   );
 }
