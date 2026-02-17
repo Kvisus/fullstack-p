@@ -13,17 +13,24 @@ datasource db {
   provider = "postgresql"
 }
 
+enum UserRole {
+  user
+  admin
+}
+
 model User {
-  id            String    @id
+  id            String      @id
   name          String
   email         String
-  emailVerified Boolean   @default(false)
+  emailVerified Boolean     @default(false)
   image         String?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
   sessions      Session[]
   accounts      Account[]
   comments      Comment[]
+  shortLinks    ShortLink[]
+  role          UserRole?   @default(user)
 
   @@unique([email])
   @@map("user")
@@ -96,4 +103,15 @@ model Comment {
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@map("comment")
+}
+
+model ShortLink {
+  id        String   @id @default(uuid())
+  slug      String   @unique
+  url       String
+  createdAt DateTime @default(now())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("short_link")
 }
