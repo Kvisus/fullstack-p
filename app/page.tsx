@@ -18,10 +18,30 @@ export default async function Home() {
         <h1 className="animate-in fade-in-0 mb-4 text-4xl font-bold duration-1000">Hi, I&apos;m Andrew</h1>
         <p className="text-muted-foreground mb-6 max-w-md text-lg">Fullstack Developer and Stuff</p>
         <div className="flex gap-4">
-          <LinkBtn href="/blog" label="Read Blog" icon={BookOpenIcon} />
-          <LinkBtn href="/comments" label="Contact Me" icon={MessageCircleIcon} />
-          <LinkBtn href="/url-shortener" label="URL Shortener" icon={Link2} />
-          <LinkBtn href="/tierlist" label="Tierlist" icon={TextAlignJustify} />
+          <LinkBtn
+            href="/blog"
+            label="Read Blog"
+            icon={BookOpenIcon}
+            prefetch
+          />
+          <LinkBtn
+            href="/comments"
+            label="Contact Me"
+            icon={MessageCircleIcon}
+            prefetch
+          />
+          <LinkBtn
+            href="/url-shortener"
+            label="URL Shortener"
+            icon={Link2}
+            prefetch
+          />
+          <LinkBtn
+            href="/tierlist"
+            label="Tierlist"
+            icon={TextAlignJustify}
+            prefetch
+          />
         </div>
       </section>
 
