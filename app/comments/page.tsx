@@ -3,7 +3,7 @@ import CommentForm from "@/components/CommentForm";
 import CommentsList from "@/components/CommentsList";
 import prisma from "@/lib/db";
 import { getSession } from "@/lib/dataAccessLayer";
-import BackHomeBtn from "@/components/BackHomeBtn";
+import BackBtn from "@/components/BackBtn";
 
 export default async function CommmentPage() {
   const session = await getSession();
@@ -19,7 +19,7 @@ export default async function CommmentPage() {
   return (
     <main className="min-h-screen py-16 px-4">
       <div className="max-w-2xl mx-auto">
-        <BackHomeBtn />
+        <BackBtn href="/" />
         <h1 className="text-3xl font-bold mb-4">Comments</h1>
         <p className="text-muted-foreground mb-8">
           Sign in to leave a comment or send message

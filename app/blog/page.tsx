@@ -1,4 +1,4 @@
-import BackHomeBtn from "@/components/BackHomeBtn";
+import BackBtn from "@/components/BackBtn";
 import { Card, CardContent } from "@/components/ui/card";
 import prisma from "@/lib/db";
 import Link from "next/link";
@@ -12,7 +12,7 @@ export default async function BlogPage() {
   return (
     <main className="min-h-screen py-16 px-4">
       <div className="max-w-3xl mx-auto">
-        <BackHomeBtn />
+        <BackBtn href="/" />
 
         <h1 className="text-3xl font-bold mb-8">Blog</h1>
         {posts.length > 0 ? (

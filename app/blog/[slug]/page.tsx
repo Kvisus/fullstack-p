@@ -2,7 +2,8 @@ import prisma from "@/lib/db";
 import { notFound } from "next/navigation";
 
 import Markdown from "@/components/Markdown";
-import BackHomeBtn from "@/components/BackHomeBtn";
+import BackHomeBtn from "@/components/BackBtn";
+import BackBtn from "@/components/BackBtn";
 
 interface Params {
   params: Promise<{
@@ -26,7 +27,7 @@ export default async function BlogPostPage({ params }: Params) {
   return (
     <main className="min-h-screen py-16 px-4">
       <article className="max-w-3xl mx-auto">
-        <BackHomeBtn />
+        <BackBtn href="/blog" />
 
         <h1 className="text-3xl font-bold mb-8">{post.title}</h1>
         <p className="text-sm text-muted-foreground">
