@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Shield } from "lucide-react";
 import { redirect } from "next/navigation";
+import BackBtn from "@/components/BackBtn";
 
 export default async function UrlShortenerPage() {
   const session = await getSession();
@@ -21,6 +22,7 @@ export default async function UrlShortenerPage() {
   return (
     <main className="min-h-screen px-4 py-16">
       <div className="mx-auto max-w-3xl space-y-8">
+      <BackBtn href="/" />
         <div className="flex items-center justify-between">
           <h1 className="text-3xl font-bold">URL Shortener</h1>
           {admin && (

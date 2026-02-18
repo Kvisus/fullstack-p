@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowLeftIcon } from "lucide-react";
 
 export default function BackBtn({ href }: { href: string }) {
+  const lastPart = href.split("/").pop();
   return (
     <Button
       asChild
@@ -12,7 +13,7 @@ export default function BackBtn({ href }: { href: string }) {
     >
       <Link href={href}>
         <ArrowLeftIcon className="mr-2 h-4 w-4" />
-        Back to Home
+        Back to {lastPart ? lastPart.charAt(0).toUpperCase() + lastPart.slice(1) : "Home"}
       </Link>
     </Button>
   );
