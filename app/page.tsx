@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import prisma from "@/lib/db";
-import { ArrowRightIcon, MessageCircleIcon } from "lucide-react";
+import { ArrowRightIcon, Link2, LinkIcon, MessageCircleIcon } from "lucide-react";
 import Link from "next/link";
 
 export default async function Home() {
@@ -12,40 +12,47 @@ export default async function Home() {
     take: 5,
   });
   return (
-    <main className="min-h-screen ">
-      <section className="flex flex-col items-center justify-center py-20 px-4 text-center">
-        <h1 className="text-4xl font-bold mb-4 animate-in fade-in-0 duration-1000">
-          Hi, I&apos;m Andrew
-        </h1>
-        <p className="text-muted-foreground mb-6 text-lg max-w-md">
-          Fullstack Developer and Stuff
-        </p>
+    <main className="min-h-screen">
+      <section className="flex flex-col items-center justify-center px-4 py-20 text-center">
+        <h1 className="animate-in fade-in-0 mb-4 text-4xl font-bold duration-1000">Hi, I&apos;m Andrew</h1>
+        <p className="text-muted-foreground mb-6 max-w-md text-lg">Fullstack Developer and Stuff</p>
         <div className="flex gap-4">
           <Button asChild>
             <Link href="/blog">Read Blog</Link>
           </Button>
-          <Button asChild variant={"outline"}>
+          <Button
+            asChild
+            variant={"outline"}
+          >
             <Link href="/comments">
-              <MessageCircleIcon className="w-4 h-4 mr-2" />
+              <MessageCircleIcon className="mr-2 h-4 w-4" />
               Contact Me
+            </Link>
+          </Button>
+          <Button
+            asChild
+            variant={"outline"}
+          >
+            <Link href="/url-shortener">
+              <Link2 className="mr-2 h-4 w-4" />
+              URL Shortener
             </Link>
           </Button>
         </div>
       </section>
 
-      <section className="py-16 px-4 max-w-3xl mx-auto">
-        <h2 className="text-2xl font-bold mb-4">About Me</h2>
+      <section className="mx-auto max-w-3xl px-4 py-16">
+        <h2 className="mb-4 text-2xl font-bold">About Me</h2>
         <p className="text-muted-foreground">
-          My main stack is React + Next.js, Tailwind CSS, and TypeScript. I have
-          also worked with Svelte and Vue.js.
+          My main stack is React + Next.js, Tailwind CSS, and TypeScript. I have also worked with Svelte and Vue.js.
         </p>
       </section>
 
-      <section className="py-16 px-4 max-w-3xl mx-auto">
-        <h2 className="text-2xl font-bold mb-4">Recent Posts</h2>
+      <section className="mx-auto max-w-3xl px-4 py-16">
+        <h2 className="mb-4 text-2xl font-bold">Recent Posts</h2>
         {posts.length > 0 ? (
           <ul className="space-y-4">
-            {posts.map((post) => (
+            {posts.map(post => (
               <Card
                 key={post.id}
                 className="hover:bg-accent transition-colors duration-200"
@@ -53,7 +60,7 @@ export default async function Home() {
                 <Link href={`/blog/${post.slug}`}>
                   <CardContent className="p-4">
                     <h3 className="font-semibold">{post.title}</h3>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-muted-foreground text-sm">
                       {new Date(post.createdAt).toLocaleDateString("ru-RU")}
                     </p>
                   </CardContent>
@@ -64,10 +71,14 @@ export default async function Home() {
         ) : (
           <p className="text-muted-foreground">No posts found</p>
         )}
-        <Button asChild variant={"link"} className="mt-4 px-0">
+        <Button
+          asChild
+          variant={"link"}
+          className="mt-4 px-0"
+        >
           <Link href="/blog">
             Read Blog
-            <ArrowRightIcon className="w-4 h-4 ml-1" />
+            <ArrowRightIcon className="ml-1 h-4 w-4" />
           </Link>
         </Button>
       </section>

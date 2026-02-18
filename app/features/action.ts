@@ -5,7 +5,16 @@ import { createShortLink, deleteShortLink, updateShortLinkSlug } from "@/app/ent
 import { revalidatePath } from "next/cache";
 import { requireShortLinkAccess } from "@/lib/short-link-access";
 
-async function createShortLinkFeature(formData: FormData) {
+export type CreateShortLinkState = {
+  error?: string;
+  success: boolean;
+  slug?: string;
+} | null;
+
+async function createShortLinkFeature(
+  _prevState: CreateShortLinkState,
+  formData: FormData,
+): Promise<CreateShortLinkState> {
   const session = await getSession();
   if (!session) {
     return { error: "Unauthorized", success: false };
@@ -16,9 +25,9 @@ async function createShortLinkFeature(formData: FormData) {
     return { error: "URL is required", success: false };
   }
 
-  await createShortLink(url, session.user.id);
+  const shortLink = await createShortLink(url, session.user.id);
   revalidatePath("/url-shortener");
-  return { success: true };
+  return { success: true, slug: shortLink.slug };
 }
 
 async function deleteShortLinkFeature(slug: string) {
