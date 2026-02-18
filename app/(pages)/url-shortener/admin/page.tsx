@@ -3,7 +3,7 @@ import { getAll } from "@/app/entities/short-link/api";
 import { isAdmin } from "@/lib/is-admin";
 import { ShortLinksAdminTable } from "@/app/widgets/short-links-admin-table";
 import { redirect } from "next/navigation";
-import BackBtn from "@/components/BackBtn";
+import LinkBtn from "@/components/LinkBtn";
 
 export default async function UrlShortenerAdminPage() {
   const session = await getSession();
@@ -17,7 +17,7 @@ export default async function UrlShortenerAdminPage() {
   return (
     <main className="min-h-screen px-4 py-16">
       <div className="mx-auto max-w-5xl space-y-8">
-      <BackBtn href="/url-shortener" />
+      <LinkBtn href="/url-shortener" />
         <div className="flex items-center gap-4">
           <h1 className="text-3xl font-bold">Admin — All Short Links</h1>
         </div>

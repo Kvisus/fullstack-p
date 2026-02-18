@@ -1,7 +1,8 @@
+import LinkBtn from "@/components/LinkBtn";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import prisma from "@/lib/db";
-import { ArrowRightIcon, Link2, LinkIcon, MessageCircleIcon } from "lucide-react";
+import { ArrowRightIcon, BookOpenIcon, Link2, MessageCircleIcon, TextAlignJustify } from "lucide-react";
 import Link from "next/link";
 
 export default async function Home() {
@@ -17,27 +18,10 @@ export default async function Home() {
         <h1 className="animate-in fade-in-0 mb-4 text-4xl font-bold duration-1000">Hi, I&apos;m Andrew</h1>
         <p className="text-muted-foreground mb-6 max-w-md text-lg">Fullstack Developer and Stuff</p>
         <div className="flex gap-4">
-          <Button asChild>
-            <Link href="/blog">Read Blog</Link>
-          </Button>
-          <Button
-            asChild
-            variant={"outline"}
-          >
-            <Link href="/comments">
-              <MessageCircleIcon className="mr-2 h-4 w-4" />
-              Contact Me
-            </Link>
-          </Button>
-          <Button
-            asChild
-            variant={"outline"}
-          >
-            <Link href="/url-shortener">
-              <Link2 className="mr-2 h-4 w-4" />
-              URL Shortener
-            </Link>
-          </Button>
+          <LinkBtn href="/blog" label="Read Blog" icon={BookOpenIcon} />
+          <LinkBtn href="/comments" label="Contact Me" icon={MessageCircleIcon} />
+          <LinkBtn href="/url-shortener" label="URL Shortener" icon={Link2} />
+          <LinkBtn href="/tierlist" label="Tierlist" icon={TextAlignJustify} />
         </div>
       </section>
 
