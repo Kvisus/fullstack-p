@@ -1,4 +1,5 @@
 import LinkBtn from "@/components/LinkBtn";
+import ProtectedLink from "@/components/ProtectedLink";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import prisma from "@/lib/db";
@@ -30,12 +31,10 @@ export default async function Home() {
             icon={MessageCircleIcon}
             prefetch
           />
-          <LinkBtn
-            href="/url-shortener"
-            label="URL Shortener"
-            icon={Link2}
-            prefetch
-          />
+          <ProtectedLink href="/url-shortener">
+            <Link2 className="mr-2 h-4 w-4" />
+            URL Shortener
+          </ProtectedLink>
           <LinkBtn
             href="/tierlist"
             label="Tierlist"
