@@ -1,8 +1,13 @@
 import { getBySlug } from "@/app/entities/short-link/api";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(_request: NextRequest, { params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+export async function GET(
+  _request: NextRequest,
+  // { params }: { params: Promise<{ slug: string }> },
+  ctx: RouteContext<"/go/[slug]">
+) {
+  // const { slug } = await params;
+  const { slug } = await ctx.params;
   const shortLink = await getBySlug(slug);
 
   if (!shortLink) {
