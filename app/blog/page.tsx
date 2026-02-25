@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
 import { Suspense } from "react";
 import { getBlogPosts } from "@/app/entities/blog/api";
-import { formatDate } from "@/lib/formatters";  
+import { formatDate } from "@/lib/formatters";
 
 async function BlogPostsList() {
   const posts = await getBlogPosts();

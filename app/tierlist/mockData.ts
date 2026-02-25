@@ -18,6 +18,4 @@ export const initialDraggables: TDraggable[] = mockImages.map((draggable, index)
   draggable,
 }));
 
-export const initialDraggablesMap: TDraggablesMap = new Map(
-  initialDraggables.map(d => [d.id, d])
-);
+export const initialDraggablesMap: TDraggablesMap = new Map(initialDraggables.map(d => [d.id, d]));

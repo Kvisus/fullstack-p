@@ -17,7 +17,7 @@ export default async function UrlShortenerAdminPage() {
   return (
     <main className="min-h-screen px-4 py-16">
       <div className="mx-auto max-w-5xl space-y-8">
-      <LinkBtn href="/url-shortener" />
+        <LinkBtn href="/url-shortener" />
         <div className="flex items-center gap-4">
           <h1 className="text-3xl font-bold">Admin — All Short Links</h1>
         </div>

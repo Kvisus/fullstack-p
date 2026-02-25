@@ -58,7 +58,7 @@ This is a simple Next.js page component.`,
 }
 
 main()
-  .catch((err) => {
+  .catch(err => {
     console.error(err);
     process.exit(1);
   })

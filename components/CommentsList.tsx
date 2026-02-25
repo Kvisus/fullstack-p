@@ -16,18 +16,16 @@ export default function CommentsList({
   }
   return (
     <div className="flex flex-col gap-4">
-      {comments.map((comment) => (
+      {comments.map(comment => (
         <Card key={comment.id}>
           <CardContent>
-            <div className="flex items-center gap-2 mb-2">
+            <div className="mb-2 flex items-center gap-2">
               <CustomAvatar
                 image={comment.user?.image || ""}
                 name={comment.user?.name}
               />
-              <span>
-                {comment.user?.name || comment.user?.email?.split("@")[0]}
-              </span>
-              <span className="text-sm text-muted-foreground">
+              <span>{comment.user?.name || comment.user?.email?.split("@")[0]}</span>
+              <span className="text-muted-foreground text-sm">
                 {new Date(comment.createdAt).toLocaleDateString("ru-RU")}
               </span>
             </div>

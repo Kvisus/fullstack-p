@@ -17,7 +17,7 @@ export default function Draggable(draggable: TDraggable) {
 
   return (
     <button
-      className="cursor-pointer select-none touch-none"
+      className="cursor-pointer touch-none select-none"
       ref={setNodeRef}
       {...listeners}
       {...attributes}

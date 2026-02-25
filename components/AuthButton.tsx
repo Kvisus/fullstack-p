@@ -46,11 +46,7 @@ export default function AuthButton({ session }: { session: Session | null }) {
           onClick={handleSignOut}
           disabled={isPending}
         >
-          {isPending ? (
-            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-          ) : (
-            <LogOutIcon className="w-4 h-4 mr-2" />
-          )}
+          {isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <LogOutIcon className="mr-2 h-4 w-4" />}
           Sign out
         </Button>
       </div>
@@ -58,12 +54,11 @@ export default function AuthButton({ session }: { session: Session | null }) {
   }
 
   return (
-    <Button onClick={handleSignIn} disabled={isPending}>
-      {isPending ? (
-        <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-      ) : (
-        <Github className="w-4 h-4 mr-2" />
-      )}
+    <Button
+      onClick={handleSignIn}
+      disabled={isPending}
+    >
+      {isPending ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : <Github className="mr-2 h-4 w-4" />}
       {isPending ? "Redirecting..." : "Sign in with Github"}
     </Button>
   );

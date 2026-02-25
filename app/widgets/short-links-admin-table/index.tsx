@@ -59,24 +59,42 @@ function AdminRow({ link }: { link: ShortLinkWithUser }) {
   };
 
   return (
-    <tr className="border-b transition-opacity last:border-0 data-[pending=true]:opacity-50" data-pending={isPending}>
+    <tr
+      className="border-b transition-opacity last:border-0 data-[pending=true]:opacity-50"
+      data-pending={isPending}
+    >
       <td className="px-4 py-3">
         {isEditing ? (
           <div className="flex items-center gap-1">
             <Input
               value={newSlug}
-              onChange={(e) => setNewSlug(e.target.value)}
+              onChange={e => setNewSlug(e.target.value)}
               className="h-7 w-28 text-sm"
               autoFocus
-              onKeyDown={(e) => {
+              onKeyDown={e => {
                 if (e.key === "Enter") handleRename();
-                if (e.key === "Escape") { setNewSlug(link.slug); setIsEditing(false); }
+                if (e.key === "Escape") {
+                  setNewSlug(link.slug);
+                  setIsEditing(false);
+                }
               }}
             />
-            <Button variant="ghost" size="icon-sm" onClick={handleRename} disabled={isPending}>
+            <Button
+              variant="ghost"
+              size="icon-sm"
+              onClick={handleRename}
+              disabled={isPending}
+            >
               <Check className="size-3.5" />
             </Button>
-            <Button variant="ghost" size="icon-sm" onClick={() => { setNewSlug(link.slug); setIsEditing(false); }}>
+            <Button
+              variant="ghost"
+              size="icon-sm"
+              onClick={() => {
+                setNewSlug(link.slug);
+                setIsEditing(false);
+              }}
+            >
               <X className="size-3.5" />
             </Button>
           </div>
@@ -84,21 +102,36 @@ function AdminRow({ link }: { link: ShortLinkWithUser }) {
           <code className="text-sm">/go/{link.slug}</code>
         )}
       </td>
-      <td className="max-w-[200px] truncate px-4 py-3 text-sm text-muted-foreground">{link.url}</td>
+      <td className="text-muted-foreground max-w-[200px] truncate px-4 py-3 text-sm">{link.url}</td>
       <td className="px-4 py-3 text-sm">{link.user.name || link.user.email}</td>
-      <td className="px-4 py-3 text-sm text-muted-foreground">
-        {new Date(link.createdAt).toLocaleDateString()}
-      </td>
+      <td className="text-muted-foreground px-4 py-3 text-sm">{new Date(link.createdAt).toLocaleDateString()}</td>
       <td className="px-4 py-3">
         <div className="flex items-center gap-1">
-          <Button variant="ghost" size="icon-sm" onClick={handleCopy} title="Copy">
+          <Button
+            variant="ghost"
+            size="icon-sm"
+            onClick={handleCopy}
+            title="Copy"
+          >
             <Copy className="size-3.5" />
           </Button>
-          <Button variant="ghost" size="icon-sm" onClick={() => setIsEditing(true)} title="Rename" disabled={isPending}>
+          <Button
+            variant="ghost"
+            size="icon-sm"
+            onClick={() => setIsEditing(true)}
+            title="Rename"
+            disabled={isPending}
+          >
             <Pencil className="size-3.5" />
           </Button>
-          <Button variant="ghost" size="icon-sm" onClick={handleDelete} title="Delete" disabled={isPending}>
-            <Trash2 className="size-3.5 text-destructive" />
+          <Button
+            variant="ghost"
+            size="icon-sm"
+            onClick={handleDelete}
+            title="Delete"
+            disabled={isPending}
+          >
+            <Trash2 className="text-destructive size-3.5" />
           </Button>
         </div>
       </td>
@@ -114,7 +147,7 @@ export function ShortLinksAdminTable({ links }: { links: ShortLinkWithUser[] }) 
           <CardTitle>All Short Links</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-sm text-muted-foreground">No links found.</p>
+          <p className="text-muted-foreground text-sm">No links found.</p>
         </CardContent>
       </Card>
     );
@@ -129,7 +162,7 @@ export function ShortLinksAdminTable({ links }: { links: ShortLinkWithUser[] }) 
         <div className="overflow-x-auto">
           <table className="w-full text-left">
             <thead>
-              <tr className="border-b text-sm font-medium text-muted-foreground">
+              <tr className="text-muted-foreground border-b text-sm font-medium">
                 <th className="px-4 py-2">Slug</th>
                 <th className="px-4 py-2">URL</th>
                 <th className="px-4 py-2">User</th>
@@ -138,8 +171,11 @@ export function ShortLinksAdminTable({ links }: { links: ShortLinkWithUser[] }) 
               </tr>
             </thead>
             <tbody>
-              {links.map((link) => (
-                <AdminRow key={link.id} link={link} />
+              {links.map(link => (
+                <AdminRow
+                  key={link.id}
+                  link={link}
+                />
               ))}
             </tbody>
           </table>

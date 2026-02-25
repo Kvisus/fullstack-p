@@ -13,7 +13,7 @@ export type CreateShortLinkState = {
 
 async function createShortLinkFeature(
   _prevState: CreateShortLinkState,
-  formData: FormData,
+  formData: FormData
 ): Promise<CreateShortLinkState> {
   const session = await getSession();
   if (!session) {

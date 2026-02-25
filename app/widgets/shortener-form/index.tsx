@@ -10,15 +10,9 @@ import { Copy, Link, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 
 export function ShortenerForm() {
-  const [state, formAction, isPending] = useActionState<
-    CreateShortLinkState,
-    FormData
-  >(createShortLinkFeature, null);
+  const [state, formAction, isPending] = useActionState<CreateShortLinkState, FormData>(createShortLinkFeature, null);
 
-  const shortUrl =
-    state?.success && state.slug
-      ? `${window.location.origin}/go/${state.slug}`
-      : null;
+  const shortUrl = state?.success && state.slug ? `${window.location.origin}/go/${state.slug}` : null;
 
   const handleCopy = async () => {
     if (!shortUrl) return;
@@ -35,7 +29,10 @@ export function ShortenerForm() {
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
-        <form action={formAction} className="flex gap-2">
+        <form
+          action={formAction}
+          className="flex gap-2"
+        >
           <Input
             name="url"
             type="url"
@@ -44,23 +41,24 @@ export function ShortenerForm() {
             disabled={isPending}
             className="flex-1"
           />
-          <Button type="submit" disabled={isPending}>
-            {isPending ? (
-              <Loader2 className="size-4 animate-spin" />
-            ) : (
-              "Shorten"
-            )}
+          <Button
+            type="submit"
+            disabled={isPending}
+          >
+            {isPending ? <Loader2 className="size-4 animate-spin" /> : "Shorten"}
           </Button>
         </form>
 
-        {state?.error && (
-          <p className="text-sm text-destructive">{state.error}</p>
-        )}
+        {state?.error && <p className="text-destructive text-sm">{state.error}</p>}
 
         {shortUrl && (
-          <div className="flex items-center gap-2 rounded-md border bg-muted/50 p-3">
+          <div className="bg-muted/50 flex items-center gap-2 rounded-md border p-3">
             <code className="flex-1 truncate text-sm">{shortUrl}</code>
-            <Button variant="ghost" size="icon-sm" onClick={handleCopy}>
+            <Button
+              variant="ghost"
+              size="icon-sm"
+              onClick={handleCopy}
+            >
               <Copy className="size-4" />
             </Button>
           </div>

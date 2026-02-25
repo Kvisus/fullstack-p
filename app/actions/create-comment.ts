@@ -16,7 +16,7 @@ export async function createComment(prevState: unknown, formData: FormData) {
   if (!content) {
     return { error: "Content is required", success: false };
   }
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  await new Promise(resolve => setTimeout(resolve, 3000));
   await prisma.comment.create({
     data: {
       content,

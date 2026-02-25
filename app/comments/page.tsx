@@ -16,20 +16,16 @@ export default async function CommmentPage() {
     },
   });
   return (
-    <main className="min-h-screen py-16 px-4">
-      <div className="max-w-2xl mx-auto">
+    <main className="min-h-screen px-4 py-16">
+      <div className="mx-auto max-w-2xl">
         <LinkBtn href="/" />
-        <h1 className="text-3xl font-bold mb-4">Comments</h1>
-        <p className="text-muted-foreground mb-8">
-          Sign in to leave a comment or send message
-        </p>
+        <h1 className="mb-4 text-3xl font-bold">Comments</h1>
+        <p className="text-muted-foreground mb-8">Sign in to leave a comment or send message</p>
 
         <CommentForm session={session} />
 
         <div className="mt-12">
-          <h2 className="text-2xl font-bold mb-4">
-            Comments ({comments.length})
-          </h2>
+          <h2 className="mb-4 text-2xl font-bold">Comments ({comments.length})</h2>
           <CommentsList comments={comments} />
         </div>
       </div>

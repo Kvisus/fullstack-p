@@ -37,22 +37,18 @@ export default function UserMenu() {
   };
 
   if (isSessionLoading) {
-    return (
-      <div className="size-8 rounded-full bg-muted animate-pulse" />
-    );
+    return <div className="bg-muted size-8 animate-pulse rounded-full" />;
   }
 
   if (!session?.user) {
     return (
-      <Button size="sm" onClick={handleSignIn} disabled={isPending}>
-        {isPending ? (
-          <Loader2 className="size-4 animate-spin" />
-        ) : (
-          <Github className="size-4" />
-        )}
-        <span className="hidden sm:inline">
-          {isPending ? "Redirecting..." : "Sign in"}
-        </span>
+      <Button
+        size="sm"
+        onClick={handleSignIn}
+        disabled={isPending}
+      >
+        {isPending ? <Loader2 className="size-4 animate-spin" /> : <Github className="size-4" />}
+        <span className="hidden sm:inline">{isPending ? "Redirecting..." : "Sign in"}</span>
       </Button>
     );
   }
@@ -62,27 +58,27 @@ export default function UserMenu() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" className="gap-2 px-2">
+        <Button
+          variant="ghost"
+          className="gap-2 px-2"
+        >
           <Avatar className="size-7">
             <AvatarImage
               src={session.user.image || ""}
               alt={displayName}
             />
-            <AvatarFallback className="text-xs">
-              {displayName.charAt(0).toUpperCase()}
-            </AvatarFallback>
+            <AvatarFallback className="text-xs">{displayName.charAt(0).toUpperCase()}</AvatarFallback>
           </Avatar>
-          <ChevronDown className="size-3.5 text-muted-foreground" />
+          <ChevronDown className="text-muted-foreground size-3.5" />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-48">
+      <DropdownMenuContent
+        align="end"
+        className="w-48"
+      >
         <DropdownMenuLabel className="font-normal">
-          <p className="text-sm font-medium truncate">{displayName}</p>
-          {session.user.email && (
-            <p className="text-xs text-muted-foreground truncate">
-              {session.user.email}
-            </p>
-          )}
+          <p className="truncate text-sm font-medium">{displayName}</p>
+          {session.user.email && <p className="text-muted-foreground truncate text-xs">{session.user.email}</p>}
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem
@@ -90,11 +86,7 @@ export default function UserMenu() {
           disabled={isPending}
           variant="destructive"
         >
-          {isPending ? (
-            <Loader2 className="size-4 animate-spin" />
-          ) : (
-            <LogOutIcon className="size-4" />
-          )}
+          {isPending ? <Loader2 className="size-4 animate-spin" /> : <LogOutIcon className="size-4" />}
           Sign out
         </DropdownMenuItem>
       </DropdownMenuContent>
