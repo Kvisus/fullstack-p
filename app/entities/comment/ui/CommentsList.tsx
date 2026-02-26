@@ -1,16 +1,8 @@
-import { Card, CardContent } from "./ui/card";
-import { CustomAvatar } from "./ui/avatar";
-import { CommentGetPayload } from "@/generated/prisma/models";
+import { Card, CardContent } from "@/components/ui/card";
+import { CustomAvatar } from "@/components/ui/avatar";
+import type { CommentWithUser } from "@/app/entities/comment/api";
 
-export default function CommentsList({
-  comments,
-}: {
-  comments: CommentGetPayload<{
-    include: {
-      user: true;
-    };
-  }>[];
-}) {
+export default function CommentsList({ comments }: { comments: CommentWithUser[] }) {
   if (comments.length === 0) {
     return <p className="text-muted-foreground">No comments found</p>;
   }

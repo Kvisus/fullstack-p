@@ -1,10 +1,11 @@
 "use client";
+
 import React, { useActionState } from "react";
-import { Textarea } from "./ui/textarea";
-import { Button } from "./ui/button";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
-import { Card, CardContent } from "./ui/card";
-import { createComment } from "@/app/actions/create-comment";
+import { Card, CardContent } from "@/components/ui/card";
+import { createComment } from "@/app/features/create-comment/action";
 import type { Session } from "@/lib/types";
 
 export default function CommentForm({ session }: { session: Session | null }) {

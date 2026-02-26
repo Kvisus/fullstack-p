@@ -2,38 +2,10 @@ import LinkBtn from "@/components/LinkBtn";
 import ProtectedLink from "@/components/ProtectedLink";
 import { BlogPostsSkeleton } from "@/components/skeletons/blog";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { getRecentBlogPosts } from "@/app/entities/blog/api";
 import { ArrowRightIcon, BookOpenIcon, Link2, MessageCircleIcon, TextAlignJustify } from "lucide-react";
 import Link from "next/link";
 import { Suspense } from "react";
-import { formatDate } from "@/lib/formatters";
-
-async function RecentPosts() {
-  const posts = await getRecentBlogPosts();
-
-  if (posts.length === 0) {
-    return <p className="text-muted-foreground">No posts found</p>;
-  }
-
-  return (
-    <ul className="space-y-4">
-      {posts.map(post => (
-        <Card
-          key={post.id}
-          className="hover:bg-accent transition-colors duration-200"
-        >
-          <Link href={`/blog/${post.slug}`}>
-            <CardContent className="p-4">
-              <h3 className="font-semibold">{post.title}</h3>
-              <p className="text-muted-foreground text-sm">{formatDate(post.createdAt)}</p>
-            </CardContent>
-          </Link>
-        </Card>
-      ))}
-    </ul>
-  );
-}
+import { RecentPosts } from "@/app/widgets/recent-posts";
 
 export default function Home() {
   return (

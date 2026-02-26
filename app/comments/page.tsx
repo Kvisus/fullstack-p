@@ -1,20 +1,12 @@
-import CommentForm from "@/components/CommentForm";
-import CommentsList from "@/components/CommentsList";
-import prisma from "@/lib/db";
+import CommentForm from "@/app/entities/comment/ui/CommentForm";
+import CommentsList from "@/app/entities/comment/ui/CommentsList";
+import { getComments } from "@/app/entities/comment/api";
 import { getSession } from "@/lib/dataAccessLayer";
 import LinkBtn from "@/components/LinkBtn";
 
 export default async function CommmentPage() {
   const session = await getSession();
-
-  const comments = await prisma.comment.findMany({
-    include: {
-      user: true,
-    },
-    orderBy: {
-      createdAt: "desc",
-    },
-  });
+  const comments = await getComments();
   return (
     <main className="min-h-screen px-4 py-16">
       <div className="mx-auto max-w-2xl">
