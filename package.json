@@ -6,7 +6,8 @@
     "dev": "bun --bun next dev",
     "build": "bun --bun next build",
     "start": "bun --bun next start",
-    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "lint": "bun run typecheck && eslint",
     "prisma:studio": "bun --bun prisma studio",
     "prisma:seed": "bun --bun prisma db seed",
     "prisma:migrate": "bun --bun prisma migrate dev",
@@ -37,7 +38,8 @@
     "remark-gfm": "^4.0.1",
     "simple-icons": "^16.5.0",
     "sonner": "^2.0.7",
-    "tailwind-merge": "^3.4.0"
+    "tailwind-merge": "^3.4.0",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
