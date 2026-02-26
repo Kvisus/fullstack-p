@@ -6,9 +6,10 @@ import { useSession } from "@/lib/auth-client";
 import { Button, type buttonVariants } from "./ui/button";
 import AuthModal from "./AuthModal";
 import type { VariantProps } from "class-variance-authority";
+import { AppRouteHandlerRoutes, AppRoutes } from "@/.next/types/routes";
 
 interface ProtectedLinkProps {
-  href: string;
+  href: AppRouteHandlerRoutes | AppRoutes;
   variant?: VariantProps<typeof buttonVariants>["variant"];
   children: ReactNode;
 }
