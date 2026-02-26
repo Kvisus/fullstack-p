@@ -13,13 +13,11 @@ export default async function BlogPostPage({ params }: Params) {
   const { slug } = await params;
 
   return (
-    <main className="min-h-screen px-4 py-16">
-      <div className="mx-auto max-w-3xl">
-        <LinkBtn href="/blog" />
-        <Suspense fallback={<BlogPostContentSkeleton />}>
-          <BlogPostContent slug={slug} />
-        </Suspense>
-      </div>
-    </main>
+    <>
+      <LinkBtn href="/blog" />
+      <Suspense fallback={<BlogPostContentSkeleton />}>
+        <BlogPostContent slug={slug} />
+      </Suspense>
+    </>
   );
 }
