@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { CustomAvatar } from "@/components/ui/avatar";
-import type { CommentDTO } from "@/app/entities/comment/api";
+import type { CommentDTO } from "@/entities/comment/api";
 
 export default function CommentsList({ comments }: { comments: CommentDTO[] }) {
   if (comments.length === 0) {

@@ -1,8 +1,8 @@
 "use client";
 
 import { useTransition, useState } from "react";
-import { deleteShortLinkFeature, renameShortLinkFeature } from "@/app/features";
-import type { ShortLinkDTO } from "@/app/entities/short-link/model/types";
+import { deleteShortLinkFeature, renameShortLinkFeature } from "@/features";
+import type { ShortLinkDTO } from "@/entities/short-link/model/types";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";

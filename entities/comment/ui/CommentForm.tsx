@@ -5,7 +5,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { createComment } from "@/app/features/create-comment/action";
+import { createComment } from "@/features/create-comment/action";
 import type { Session } from "@/lib/types";
 
 export default function CommentForm({ session }: { session: Session | null }) {

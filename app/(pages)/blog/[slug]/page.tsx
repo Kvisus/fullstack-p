@@ -1,8 +1,8 @@
 import LinkBtn from "@/components/LinkBtn";
 import { BlogPostContentSkeleton } from "@/components/skeletons/blog";
 import { Suspense } from "react";
-import { BlogPostContent } from "@/app/widgets/blog-post-content";
-import { getBlogPost, getBlogPosts } from "@/app/entities/blog/api";
+import { BlogPostContent } from "@/widgets/blog-post-content";
+import { getBlogPost, getBlogPosts } from "@/entities/blog/api";
 import { Metadata } from "next";
 
 export async function generateStaticParams() {

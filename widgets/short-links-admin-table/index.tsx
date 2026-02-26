@@ -1,13 +1,13 @@
 "use client";
 
 import { useTransition, useState } from "react";
-import { deleteShortLinkFeature, renameShortLinkFeature } from "@/app/features";
+import { deleteShortLinkFeature, renameShortLinkFeature } from "@/features";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Copy, Trash2, Pencil, Check, X } from "lucide-react";
 import { toast } from "sonner";
-import type { AdminShortLinkDTO } from "@/app/entities/short-link/model/types";
+import type { AdminShortLinkDTO } from "@/entities/short-link/model/types";
 
 function AdminRow({ link }: { link: AdminShortLinkDTO }) {
   const [isPending, startTransition] = useTransition();

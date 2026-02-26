@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Markdown from "@/components/Markdown";
-import { getBlogPost } from "@/app/entities/blog/api";
+import { getBlogPost } from "@/entities/blog/api";
 import { formatDate } from "@/lib/formatters";
 
 export async function BlogPostContent({ slug }: { slug: string }) {

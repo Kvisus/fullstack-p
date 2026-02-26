@@ -1,7 +1,7 @@
 import { getSession } from "@/lib/dataAccessLayer";
 import { isAdmin } from "@/lib/is-admin";
-import { getAllShortLinks } from "@/app/entities/short-link/api";
-import { ShortLinksAdminTable } from "@/app/widgets/short-links-admin-table";
+import { getAllShortLinks } from "@/entities/short-link/api";
+import { ShortLinksAdminTable } from "@/widgets/short-links-admin-table";
 import { redirect } from "next/navigation";
 import LinkBtn from "@/components/LinkBtn";
 

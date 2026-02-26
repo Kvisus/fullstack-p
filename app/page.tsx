@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRightIcon, BookOpenIcon, Link2, MessageCircleIcon, TextAlignJustify } from "lucide-react";
 import Link from "next/link";
 import { Suspense } from "react";
-import { RecentPosts } from "@/app/widgets/recent-posts";
+import { RecentPosts } from "@/widgets/recent-posts";
 
 export default function Home() {
   return (

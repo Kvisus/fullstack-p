@@ -1,8 +1,8 @@
 import { getSession } from "@/lib/dataAccessLayer";
 import { isAdmin } from "@/lib/is-admin";
-import { getMyShortLinks } from "@/app/entities/short-link/api";
-import { ShortenerForm } from "@/app/widgets/shortener-form";
-import { ShortenerHistory } from "@/app/widgets/shortener-history";
+import { getMyShortLinks } from "@/entities/short-link/api";
+import { ShortenerForm } from "@/widgets/shortener-form";
+import { ShortenerHistory } from "@/widgets/shortener-history";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Shield } from "lucide-react";

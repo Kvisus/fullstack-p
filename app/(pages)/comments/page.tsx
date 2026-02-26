@@ -1,6 +1,6 @@
-import CommentForm from "@/app/entities/comment/ui/CommentForm";
-import CommentsList from "@/app/entities/comment/ui/CommentsList";
-import { getComments } from "@/app/entities/comment/api";
+import CommentForm from "@/entities/comment/ui/CommentForm";
+import CommentsList from "@/entities/comment/ui/CommentsList";
+import { getComments } from "@/entities/comment/api";
 import { getSession } from "@/lib/dataAccessLayer";
 import LinkBtn from "@/components/LinkBtn";
 

@@ -1,7 +1,7 @@
 "use server";
 
 import { getSession } from "@/lib/dataAccessLayer";
-import { createShortLink, deleteShortLink, updateShortLinkSlug } from "@/app/entities/short-link/api";
+import { createShortLink, deleteShortLink, updateShortLinkSlug } from "@/entities/short-link/api";
 import { revalidatePath } from "next/cache";
 import { requireShortLinkAccess } from "@/lib/short-link-access";
 

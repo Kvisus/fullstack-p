@@ -1,8 +1,8 @@
 "use client";
 
 import { useActionState } from "react";
-import { createShortLinkFeature } from "@/app/features";
-import type { CreateShortLinkState } from "@/app/features/action";
+import { createShortLinkFeature } from "@/features";
+import type { CreateShortLinkState } from "@/features/action";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";

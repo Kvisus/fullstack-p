@@ -1,4 +1,4 @@
-import { getBySlug } from "@/app/entities/short-link/api";
+import { getBySlug } from "@/entities/short-link/api";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(

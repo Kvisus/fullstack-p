@@ -1,7 +1,7 @@
 import LinkBtn from "@/components/LinkBtn";
 import { BlogPostsSkeleton } from "@/components/skeletons/blog";
 import { Suspense } from "react";
-import { BlogPostsList } from "@/app/widgets/blog-posts-list";
+import { BlogPostsList } from "@/widgets/blog-posts-list";
 import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {

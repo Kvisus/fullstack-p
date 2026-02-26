@@ -1,10 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
-import { getRecentBlogPosts } from "@/app/entities/blog/api";
+import { getBlogPosts } from "@/entities/blog/api";
 import { formatDate } from "@/lib/formatters";
 
-export async function RecentPosts() {
-  const posts = await getRecentBlogPosts();
+export async function BlogPostsList() {
+  const posts = await getBlogPosts();
 
   if (posts.length === 0) {
     return <p className="text-muted-foreground">No posts found</p>;
