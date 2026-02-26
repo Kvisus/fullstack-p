@@ -3,9 +3,10 @@ import { Button, type buttonVariants } from "./ui/button";
 import Link from "next/link";
 import { ArrowLeftIcon, type LucideIcon } from "lucide-react";
 import type { VariantProps } from "class-variance-authority";
+import { AppRouteHandlerRoutes, AppRoutes } from "@/.next/types/routes";
 
 interface LinkBtnProps {
-  href: string;
+  href: AppRouteHandlerRoutes | AppRoutes;
   label?: string;
   icon?: LucideIcon;
   variant?: VariantProps<typeof buttonVariants>["variant"];
