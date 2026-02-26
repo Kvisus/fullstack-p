@@ -1,3 +1,4 @@
+import "server-only";
 import prisma from "./db";
 import { generateShortCodeSlug } from "./generate-short-code";
 

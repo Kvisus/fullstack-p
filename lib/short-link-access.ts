@@ -1,3 +1,4 @@
+import "server-only";
 import { getShortLinkBySlug } from "./short-links";
 import { isAdmin } from "./is-admin";
 import type { Session } from "./types";

@@ -2,19 +2,17 @@
 
 import { useTransition, useState } from "react";
 import { deleteShortLinkFeature, renameShortLinkFeature } from "@/app/features";
-import type { ShortLink } from "@/app/entities/short-link/model/types";
+import type { ShortLinkDTO } from "@/app/entities/short-link/model/types";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Copy, Trash2, Pencil, Check, X, ExternalLink } from "lucide-react";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation";
 
-function ShortLinkRow({ link }: { link: ShortLink }) {
+function ShortLinkRow({ link }: { link: ShortLinkDTO }) {
   const [isPending, startTransition] = useTransition();
   const [isEditing, setIsEditing] = useState(false);
   const [newSlug, setNewSlug] = useState(link.slug);
-  const router = useRouter();
 
   const shortUrl = `${process.env.NEXT_PUBLIC_FRONTEND_URL}/go/${link.slug}`;
 
@@ -140,7 +138,7 @@ function ShortLinkRow({ link }: { link: ShortLink }) {
   );
 }
 
-export function ShortenerHistory({ links }: { links: ShortLink[] }) {
+export function ShortenerHistory({ links }: { links: ShortLinkDTO[] }) {
   if (links.length === 0) {
     return (
       <Card>

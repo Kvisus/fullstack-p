@@ -1,8 +1,10 @@
-import { ShortLink } from "@/generated/prisma/client";
-
-type CreateShortLinkInput = {
+export type ShortLinkDTO = {
+  id: string;
   slug: string;
   url: string;
+  createdAt: Date;
 };
 
-export type { CreateShortLinkInput, ShortLink };
+export type AdminShortLinkDTO = ShortLinkDTO & {
+  ownerName: string;
+};

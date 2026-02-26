@@ -1,6 +1,6 @@
 import { getSession } from "@/lib/dataAccessLayer";
-import { getAll } from "@/app/entities/short-link/api";
 import { isAdmin } from "@/lib/is-admin";
+import { getAllShortLinks } from "@/app/entities/short-link/api";
 import { ShortLinksAdminTable } from "@/app/widgets/short-links-admin-table";
 import { redirect } from "next/navigation";
 import LinkBtn from "@/components/LinkBtn";
@@ -12,7 +12,7 @@ export default async function UrlShortenerAdminPage() {
     redirect("/url-shortener");
   }
 
-  const links = await getAll();
+  const links = await getAllShortLinks();
 
   return (
     <main className="min-h-screen px-4 py-16">

@@ -1,3 +1,4 @@
+import "server-only";
 import { UserRole } from "@/generated/prisma/client";
 import { Session } from "./types";
 

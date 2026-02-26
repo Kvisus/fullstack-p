@@ -1,6 +1,6 @@
 import { getSession } from "@/lib/dataAccessLayer";
-import { getByUserId } from "@/app/entities/short-link/api";
 import { isAdmin } from "@/lib/is-admin";
+import { getMyShortLinks } from "@/app/entities/short-link/api";
 import { ShortenerForm } from "@/app/widgets/shortener-form";
 import { ShortenerHistory } from "@/app/widgets/shortener-history";
 import { Button } from "@/components/ui/button";
@@ -16,8 +16,10 @@ export default async function UrlShortenerPage() {
     redirect("/");
   }
 
-  const links = await getByUserId(session.user.id);
-  const admin = await isAdmin(session);
+  const [links, admin] = await Promise.all([
+    getMyShortLinks(),
+    isAdmin(session),
+  ]);
 
   return (
     <main className="min-h-screen px-4 py-16">

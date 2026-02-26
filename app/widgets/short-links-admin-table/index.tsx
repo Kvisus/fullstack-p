@@ -7,22 +7,9 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Copy, Trash2, Pencil, Check, X } from "lucide-react";
 import { toast } from "sonner";
+import type { AdminShortLinkDTO } from "@/app/entities/short-link/model/types";
 
-type ShortLinkWithUser = {
-  id: string;
-  slug: string;
-  url: string;
-  createdAt: Date;
-  userId: string;
-  user: {
-    id: string;
-    name: string;
-    email: string;
-    image: string | null;
-  };
-};
-
-function AdminRow({ link }: { link: ShortLinkWithUser }) {
+function AdminRow({ link }: { link: AdminShortLinkDTO }) {
   const [isPending, startTransition] = useTransition();
   const [isEditing, setIsEditing] = useState(false);
   const [newSlug, setNewSlug] = useState(link.slug);
@@ -103,7 +90,7 @@ function AdminRow({ link }: { link: ShortLinkWithUser }) {
         )}
       </td>
       <td className="text-muted-foreground max-w-[200px] truncate px-4 py-3 text-sm">{link.url}</td>
-      <td className="px-4 py-3 text-sm">{link.user.name || link.user.email}</td>
+      <td className="px-4 py-3 text-sm">{link.ownerName}</td>
       <td className="text-muted-foreground px-4 py-3 text-sm">{new Date(link.createdAt).toLocaleDateString()}</td>
       <td className="px-4 py-3">
         <div className="flex items-center gap-1">
@@ -139,7 +126,7 @@ function AdminRow({ link }: { link: ShortLinkWithUser }) {
   );
 }
 
-export function ShortLinksAdminTable({ links }: { links: ShortLinkWithUser[] }) {
+export function ShortLinksAdminTable({ links }: { links: AdminShortLinkDTO[] }) {
   if (links.length === 0) {
     return (
       <Card>
