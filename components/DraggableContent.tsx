@@ -1,6 +1,6 @@
 "use client";
 
-import { TDraggable } from "@/app/tierlist/types";
+import type { TDraggable } from "@/app/(pages)/tierlist/types";
 import Image from "next/image";
 
 export default function DraggableContent({ draggable }: { draggable: TDraggable }) {

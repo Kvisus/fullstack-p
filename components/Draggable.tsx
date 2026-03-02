@@ -1,6 +1,6 @@
 "use client";
 
-import type { TDraggable } from "@/app/tierlist/types";
+import type { TDraggable } from "@/app/(pages)/tierlist/types";
 import { useSortable } from "@dnd-kit/sortable";
 import DraggableContent from "./DraggableContent";
 import { CSS } from "@dnd-kit/utilities";

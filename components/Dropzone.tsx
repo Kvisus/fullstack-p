@@ -1,8 +1,7 @@
 import { useDroppable } from "@dnd-kit/core";
 import Draggable from "./Draggable";
-import type { TDraggablesMap, TDropzone } from "@/app/tierlist/types";
+import type { TDraggablesMap, TDropzone } from "@/app/(pages)/tierlist/types";
 import { SortableContext } from "@dnd-kit/sortable";
-import { UNSORTED_ID } from "@/app/tierlist/utils";
 import { cn } from "@/lib/utils";
 
 type DropzoneProps = {
