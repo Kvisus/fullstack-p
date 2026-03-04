@@ -15,6 +15,19 @@ const eslintConfig = defineConfig([
     "next-env.d.ts",
   ]),
   prettier,
+  {
+    plugins: ["react-component-name"],
+    rules: {
+      "prefer-arrow-callback": ["error", { allowNamedFunctions: true }],
+
+      "react-component-name/react-component-name": [
+        "error",
+        {
+          targets: ["action", "computed", "effect", "reatomComponent"],
+        },
+      ],
+    },
+  },
 ]);
 
 export default eslintConfig;
